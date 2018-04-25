@@ -73,6 +73,7 @@
     <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy:2.4.14" level="project" />
     <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.postgresql:postgresql:9.4.1208.jre7" level="project" />
     <orderEntry type="library" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
     <orderEntry type="library" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.14.RELEASE" level="project" />
@@ -130,10 +131,10 @@
     <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.3.14.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-xml:2.4.14" level="project" />
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-templates:2.4.14" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.el:el-api:2.1.2-b03" level="project" />
     <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.17" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: javax.transaction:jta:1.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.el:el-api:2.1.2-b03" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.27" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-databinding:3.3.3" level="project" />
     <orderEntry type="library" name="Gradle: org.grails:grails-web-url-mappings:3.3.3" level="project" />
