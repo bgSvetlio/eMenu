@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.grails.plugins:spring-security-rest:2.0.0.RC1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/spring-security-rest/2.0.0.RC1/f42357a6a5b7725e23d7126ad9afcf353911015d/spring-security-rest-2.0.0.RC1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.grails.plugins/spring-security-rest/2.0.0.RC1/5b63f20e1915933e00158121b4f2ac45c3d79bf6/spring-security-rest-2.0.0.RC1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.pac4j:pac4j-core:2.2.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.pac4j/pac4j-core/2.2.1/84de0796e01807cddb057b87bc3a3c24bf94d87b/pac4j-core-2.2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.pac4j/pac4j-core/2.2.1/8e030cb29f2ad69dd8661781d7bd2aa6c687977b/pac4j-core-2.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
