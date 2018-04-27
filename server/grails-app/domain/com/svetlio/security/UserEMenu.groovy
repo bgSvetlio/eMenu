@@ -1,5 +1,7 @@
 package com.svetlio.security
 
+import com.svetlio.Company
+import com.svetlio.Restaurant
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 import grails.compiler.GrailsCompileStatic
@@ -18,6 +20,11 @@ class UserEMenu implements Serializable {
     boolean accountLocked
     boolean passwordExpired
 
+    String eMail
+
+    Restaurant restaurant
+    Company company
+
     Set<Role> getAuthorities() {
         (UserEMenuRole.findAllByUserEMenu(this) as List<UserEMenuRole>)*.role as Set<Role>
     }
@@ -25,6 +32,9 @@ class UserEMenu implements Serializable {
     static constraints = {
         password nullable: false, blank: false, password: true
         username nullable: false, blank: false, unique: true
+
+        company nullable: true
+        restaurant nullable: true
     }
 
     static mapping = {

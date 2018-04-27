@@ -1,11 +1,17 @@
 package com.svetlio
 
+import java.time.LocalDate
+
 class Menu {
 
     static hasMany = [dishes: Dish]
-    Date date
+    LocalDate date
     Restaurant restaurant
 
     static constraints = {
+    }
+
+    static mapping = {
+        dishes lazy: false
     }
 }
