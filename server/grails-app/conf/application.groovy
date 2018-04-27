@@ -17,6 +17,9 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.svetlio.security.UserEMenu'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.svetlio.security.UserEMenuRole'
 grails.plugin.springsecurity.authority.className = 'com.svetlio.security.Role'
+
+grails.plugin.springsecurity.rest.token.storage.jwt.secret = "fdskjgnksfdjn324k324sdnfargeorsfnksadjfggdsagfadsfdsa"
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
@@ -39,3 +42,11 @@ grails.plugin.springsecurity.filterChain.chainMap = [
 	[pattern: '/**',             filters: 'JOINED_FILTERS']
 ]
 
+grails.plugin.springsecurity.filterChain.chainMap = [
+		[pattern: '/api/**', filters:'JOINED_FILTERS,-anonymousAuthenticationFilter,-exceptionTranslationFilter,-authenticationProcessingFilter,-securityContextPersistenceFilter'],
+		[pattern: '/**', filters:'JOINED_FILTERS,-restTokenValidationFilter,-restExceptionTranslationFilter']
+]
+
+grails.plugin.springsecurity.rest.logout.endpointUrl = '/api/logout'
+grails.plugin.springsecurity.rest.token.validation.useBearerToken = false
+grails.plugin.springsecurity.rest.token.validation.headerName = 'X-Auth-Token'
