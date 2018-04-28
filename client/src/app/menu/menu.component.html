@@ -1,0 +1,17 @@
+<p>
+  menu works!
+</p>
+
+<h3 style="color: red">{{errMsg}}</h3>
+
+<!--<button (click)="()"></button>-->
+<app-logout></app-logout>
+
+<p>date of the menu: {{ menu.date }}</p>
+<ul>
+  <li *ngFor="let dishes of menu.dishes">
+    <p>id of the dish: {{ dishes.id }}</p>
+    <p>name of the menu: {{ dishes.name }}</p>
+    <br>
+  </li>
+</ul>

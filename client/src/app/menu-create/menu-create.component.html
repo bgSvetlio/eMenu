@@ -1,0 +1,15 @@
+<p>
+  menu-create works!
+</p>
+
+<h3 style="color: red">{{errMsg}}</h3>
+
+<app-logout></app-logout>
+
+<ul>
+  <li *ngFor="let menu of menus">
+    <p>name of the menu: {{ menu.name }}</p>
+    <p>date of the menu: {{ menu.date }}</p>
+    <br>
+  </li>
+</ul>
