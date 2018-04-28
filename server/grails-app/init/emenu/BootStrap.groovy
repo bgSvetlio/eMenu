@@ -5,13 +5,12 @@ import com.svetlio.Dish
 import com.svetlio.FoodOrder
 import com.svetlio.Menu
 import com.svetlio.Restaurant
+import com.svetlio.marshallers.MenuMarshaller
 import com.svetlio.security.Role
 import com.svetlio.security.UserEMenu
 import com.svetlio.security.UserEMenuRole
 
-import java.sql.Date
 import java.sql.Timestamp
-import java.time.LocalDate
 
 class BootStrap {
 
@@ -68,10 +67,12 @@ class BootStrap {
         Dish dish1 = new Dish(name: "Kebab", description: "meat", price: 2.20, allergens:  "dfsfds").save(flush:true)
         Dish dish2 = new Dish(name: "Banica", description: "dough with cheese and eggs", price: 1.20, allergens:  "egs").save(flush:true)
 
-        Menu menu = new Menu(dishes: [dish, dish1, dish2], date: LocalDate.now(), restaurant: restaurant).save(flush:true)
+        Menu menu = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
 
         FoodOrder order = new FoodOrder(dishes: [dish1, dish2], user: user5, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
         FoodOrder order1 = new FoodOrder(dishes: [dish, dish1], user: user5, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
+
+        [ new MenuMarshaller() ].each { it.register() }
     }
     def destroy = {
     }
