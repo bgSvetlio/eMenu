@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpErrorResponse} from "@angular/common/http";
 import {MenuService} from "../menu.service";
+import {Menu} from "../domainObjects/menu";
 
 @Component({
   selector: 'app-menu',
@@ -10,7 +11,7 @@ import {MenuService} from "../menu.service";
 })
 export class MenuComponent implements OnInit {
 
-    menu: any;
+    menu: Menu;
     errMsg: String;
 
     constructor(private menuService: MenuService) { }
@@ -31,12 +32,10 @@ export class MenuComponent implements OnInit {
             // Do messaging and error handling here
             return Observable.throw(err);
         }).subscribe(
-            (data: any) => {
-                console.log('aaaaaaaaa');
+            (data: Menu) => {
                 console.log(data);
 
                 this.menu = data;
-                console.log('aaaaaaaaa');
             }
         );
     }
