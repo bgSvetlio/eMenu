@@ -1,0 +1,14 @@
+<p-card title="{{name}}" subtitle="{{allergens}}" [style]="{width: '360px'}" class="pointer " [ngClass]="checked ? 'ui-card-shadow1' : 'ui-card-shadow2'" (click)="cardClick()">
+  <p-header>
+    <img src="../../images/dishes/{{foodPic}}" alt="Picture of the food">
+    <span class="tag">
+      <b>Price: </b>
+      <span class="price">{{price| number:'.2-2'}}lv</span>
+      <p-checkbox binary="true" [(ngModel)]="checked" (onChange)="cardClick()" style=""></p-checkbox>
+    </span>
+  </p-header>
+
+  <span>
+    <ng-content></ng-content>
+  </span>
+</p-card>
