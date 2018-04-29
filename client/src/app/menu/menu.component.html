@@ -4,26 +4,12 @@
 
 <h3 style="color: red">{{errMsg}}</h3>
 
-<!--<button (click)="()"></button>-->
 <app-logout></app-logout>
 
 <p>date of the menu: {{ menu?.date }}</p>
-<ul>
-  <li *ngFor="let dishes of menu?.dishes">
-    <p>id of the dish: {{ dishes.id }}</p>
-    <p>name of the menu: {{ dishes.name }}</p>
-    <br>
-  </li>
-</ul>
 
-<p-accordion>
-  <p-accordionTab header="Header 1">
-    Content 1
-  </p-accordionTab>
-  <p-accordionTab header="Header 2">
-    Content 2
-  </p-accordionTab>
-  <p-accordionTab header="Header 3">
-    Content 3
-  </p-accordionTab>
-</p-accordion>
+<div class="ui-g">
+    <div class="ui-g-3" *ngFor="let dish of menu?.dishes">
+        <app-dish-card [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic">{{dish.description}}</app-dish-card>
+    </div>
+</div>

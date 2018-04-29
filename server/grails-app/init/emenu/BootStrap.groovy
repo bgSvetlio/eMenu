@@ -63,9 +63,9 @@ class BootStrap {
         def user5 = new UserEMenu(username:"Soko",password:"qwe", eMail: "fds@fgd.com", company: company).save(flush:true)
         UserEMenuRole.create(user5,role3)
 
-        Dish dish = new Dish(name: "Musaka", description: "potatoes and meat", price: 3.20, allergens: "potato, eggs").save(flush:true)
-        Dish dish1 = new Dish(name: "Kebab", description: "meat", price: 2.20, allergens:  "dfsfds").save(flush:true)
-        Dish dish2 = new Dish(name: "Banica", description: "dough with cheese and eggs", price: 1.20, allergens:  "egs").save(flush:true)
+        Dish dish = new Dish(name: "Musaka", description: "potatoes and meat", price: 3.20, allergens: "potato, eggs", foodPic: "food3.jpg").save(flush:true)
+        Dish dish1 = new Dish(name: "Kebab", description: "meat", price: 2.20, allergens:  "dfsfds", foodPic: "food1.jpg").save(flush:true)
+        Dish dish2 = new Dish(name: "Banica", description: "dough with cheese and eggs", price: 1.20, allergens:  "egs", foodPic: "food2.jpg").save(flush:true)
 
         Menu menu = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
 

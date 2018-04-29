@@ -6,7 +6,9 @@ class Dish {
     String description
     Double price
     String allergens
+    String foodPic
 
     static constraints = {
+        foodPic nullable: true
     }
 }

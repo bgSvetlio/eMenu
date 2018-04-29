@@ -50,11 +50,6 @@ export class LoginComponent {
                     } else if(data.roles.includes("ROLE_RESTAURANT")) {
                         this.router.navigateByUrl('/menuCreate');
                     }
-                    // if(data.roles[0] === "ROLE_ADMIN") {
-                    //     this.router.navigateByUrl('/menuAdmin');
-                    // } else {
-                    //     this.router.navigateByUrl('/menu');
-                    // }
                 }
             );
         }

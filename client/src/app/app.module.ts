@@ -18,8 +18,10 @@ import {AuthInterceptor} from "./auth-interceptor";
 import { MenuComponent } from './menu/menu.component';
 import {MenuService} from "./menu.service";
 import { MenuCreateComponent } from './menu-create/menu-create.component';
-import {AccordionModule} from "primeng/primeng";
+import {AccordionModule, CheckboxModule} from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { DishCardComponent } from './dish-card/dish-card.component';
+import {CardModule} from "primeng/card";
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     LoginComponent,
     LogoutComponent,
     MenuComponent,
-    MenuCreateComponent
+    MenuCreateComponent,
+    DishCardComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,9 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     AppRoutingModule,
     NgbModule.forRoot(),
       AccordionModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      CardModule,
+      CheckboxModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, NavService,  AuthGuard, AuthService,
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService],

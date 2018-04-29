@@ -49,6 +49,7 @@
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-jdbc:8.5.27" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy:2.4.14" />
           <element id="library" level="project" name="Gradle: org.slf4j:slf4j-api:1.7.25" />
+          <element id="library" level="project" name="Gradle: org.postgresql:postgresql:9.4.1208.jre7" />
           <element id="library" level="project" name="Gradle: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" />
           <element id="library" level="project" name="Gradle: com.googlecode.concurrentlinkedhashmap:concurrentlinkedhashmap-lru:1.4.2" />
           <element id="library" level="project" name="Gradle: org.springframework:spring-core:4.3.14.RELEASE" />
@@ -106,10 +107,10 @@
           <element id="library" level="project" name="Gradle: org.springframework:spring-expression:4.3.14.RELEASE" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy-xml:2.4.14" />
           <element id="library" level="project" name="Gradle: org.codehaus.groovy:groovy-templates:2.4.14" />
-          <element id="library" level="project" name="Gradle: javax.el:el-api:2.1.2-b03" />
           <element id="library" level="project" name="Gradle: org.yaml:snakeyaml:1.17" />
-          <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.27" />
           <element id="library" level="project" name="Gradle: javax.transaction:jta:1.1" />
+          <element id="library" level="project" name="Gradle: javax.el:el-api:2.1.2-b03" />
+          <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-juli:8.5.27" />
           <element id="library" level="project" name="Gradle: org.apache.tomcat:tomcat-annotations-api:8.5.27" />
           <element id="library" level="project" name="Gradle: org.grails:grails-web-databinding:3.3.3" />
           <element id="library" level="project" name="Gradle: org.grails:grails-web-url-mappings:3.3.3" />
@@ -159,7 +160,6 @@
           <element id="library" level="project" name="Gradle: commons-collections:commons-collections:3.2.2" />
           <element id="library" level="project" name="Gradle: org.ow2.asm:asm:5.0.4" />
           <element id="library" level="project" name="Gradle: com.google.guava:guava:21.0" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/9.4.1208.jre7/368ab5589354e156a2aaa9c3bbb13524d76d0a65/postgresql-9.4.1208.jre7.jar" />
         </element>
       </element>
     </root>
