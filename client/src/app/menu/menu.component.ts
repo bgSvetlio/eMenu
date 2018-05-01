@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit {
 
     menu: Menu;
     errMsg: String;
+    date: Date = new Date();
 
     constructor(private menuService: MenuService) { }
 
@@ -21,12 +22,14 @@ export class MenuComponent implements OnInit {
     }
 
     getMenu() {
-        this.menuService.getMenu().catch((err) => {
+        this.menuService.getMenuForADate(this.date).catch((err) => {
 
             if (err instanceof HttpErrorResponse && err.status == 403) {
                 this.errMsg = "Forbidden resource";
+            } else if(err.status == 400 && err.error == "menuNotFound") {
+                this.errMsg = "Menu for this date is not found";
             } else {
-                this.errMsg = err.message || "Server Error"
+                this.errMsg = err.message || "Server Error";
             }
 
             // Do messaging and error handling here
@@ -39,5 +42,4 @@ export class MenuComponent implements OnInit {
             }
         );
     }
-
 }

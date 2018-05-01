@@ -9,7 +9,7 @@ class UserService {
 
     JwtService jwtService
 
-    UserEMenu getCurrentUser(token) {
+    UserEMenu getCurrentUser(String token) {
         com.nimbusds.jose.Payload payload = jwtService.parse(token).payload
         def user = payload.toJSONObject().sub
 

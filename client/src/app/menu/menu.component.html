@@ -6,6 +6,8 @@
 
 <app-logout></app-logout>
 
+<p-calendar [(ngModel)]="date" (onSelect)="getMenu()"></p-calendar>
+
 <p>date of the menu: {{ menu?.date }}</p>
 
 <div class="ui-g">

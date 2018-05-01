@@ -29,6 +29,10 @@ class MenuController {
 
         Menu menu = Menu.find{date == params.date && restaurant == userEMenu.company.restaurant}
 
-        render menu as JSON
+        if(menu) {
+            render menu as JSON
+        } else {
+            render status: 400, text: "menuNotFound", contentType:"text/plain"
+        }
     }
 }
