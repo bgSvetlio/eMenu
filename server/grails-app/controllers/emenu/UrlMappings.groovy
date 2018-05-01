@@ -13,6 +13,7 @@ class UrlMappings {
         "/api/Menu"(controller: 'Menu')
         "/api/Menu/check"(controller: 'Menu', action: 'check')
         "/api/Menu/show"(controller: 'Menu', action: 'show')
+        "/api/Order/save"(controller: 'Order', action: 'save')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')
