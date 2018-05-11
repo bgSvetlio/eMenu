@@ -8,23 +8,27 @@
 
 <p-calendar [(ngModel)]="date" (onSelect)="getMenu()"></p-calendar>
 
-<p>date of the menu: {{ menu?.date }}</p>
+<div *ngIf="orderMsg == null">
 
-<div class="ui-g">
-    <div class="ui-g-3" *ngFor="let dish of menu?.dishes">
-        <app-dish-card [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic" [id]="dish.id" (selectDish)="selectDish($event)">{{dish.description}}</app-dish-card>
+    <p>date of the menu: {{ menu?.date }}</p>
+
+    <div class="ui-g">
+        <div class="ui-g-3" *ngFor="let dish of menu?.dishes">
+            <app-dish-card [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic" [id]="dish.id" (selectDish)="selectDish($event)">{{dish.description}}</app-dish-card>
+        </div>
     </div>
+
+    <ul>
+        <li *ngFor="let dish of this?.selectedDishes">
+            <p>name of the dish: {{ dish.name }}</p>
+            <p>price of the dish: {{ dish.price }}</p>
+            <br>
+        </li>
+    </ul>
+
+    <h2>Price of the order: {{orderPrice| number:'.2-2'}}lv</h2>
+
+    <p-button (click)="saveOrder()" label="Submit"></p-button>
 </div>
 
-<ul>
-    <li *ngFor="let dish of this?.selectedDishes">
-        <p>name of the dish: {{ dish.name }}</p>
-        <p>price of the dish: {{ dish.price }}</p>
-        <br>
-    </li>
-</ul>
-
-<h2>Price of the order: {{orderPrice| number:'.2-2'}}lv</h2>
-
-
-<button (click)="saveOrder()">Submit</button>
+<h1>{{orderMsg}}</h1>

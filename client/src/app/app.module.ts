@@ -22,6 +22,7 @@ import {AccordionModule, CalendarModule, CheckboxModule} from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { DishCardComponent } from './dish-card/dish-card.component';
 import {CardModule} from "primeng/card";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {CardModule} from "primeng/card";
       BrowserAnimationsModule,
       CardModule,
       CheckboxModule,
-      CalendarModule
+      CalendarModule,
+      ButtonModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, NavService,  AuthGuard, AuthService,
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService],

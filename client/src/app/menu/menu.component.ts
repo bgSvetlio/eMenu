@@ -4,6 +4,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 import {MenuService} from "../menu.service";
 import {Menu} from "../domainObjects/menu";
 import {Dish} from "../domainObjects/dish";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-menu',
@@ -14,6 +15,7 @@ export class MenuComponent implements OnInit {
 
     menu: Menu;
     errMsg: String;
+    orderMsg: String;
     date: Date = new Date();
 
     selectedDishes: Dish[] = [];
@@ -36,12 +38,15 @@ export class MenuComponent implements OnInit {
             } else {
                 this.errMsg = err.message || "Server Error";
             }
-
             // Do messaging and error handling here
             return Observable.throw(err);
         }).subscribe(
             (data: Menu) => {
                 console.log(data);
+                this.errMsg = null;
+                this.orderMsg = null;
+                this.selectedDishes = [];
+                this.orderPrice = 0;
 
                 this.menu = data;
             }
@@ -62,12 +67,10 @@ export class MenuComponent implements OnInit {
     }
 
     saveOrder() {
-        this.menuService.submitOrder(this.selectedDishes).catch((err) => {
+        this.menuService.submitOrder(this.selectedDishes, this.menu).catch((err) => {
 
             if (err instanceof HttpErrorResponse && err.status == 403) {
                 this.errMsg = "Forbidden resource";
-            } else if(err.status == 400 && err.error == "menuNotFound") {
-                this.errMsg = "Menu for this date is not found";
             } else {
                 this.errMsg = err.message || "Server Error";
             }
@@ -75,10 +78,10 @@ export class MenuComponent implements OnInit {
             // Do messaging and error handling here
             return Observable.throw(err);
         }).subscribe(
-            (data: Menu) => {
+            (data: any) => {
                 console.log(data);
 
-                this.menu = data;
+                this.orderMsg = `You successfully ordered food for ${new DatePipe('en-US').transform(this.date, 'dd/MM/yyyy')} with ID of the order ${data.id}`;
             }
         );
     }
