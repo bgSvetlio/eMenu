@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {MenuService} from "../menu.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Menu} from "../domainObjects/menu";
+import {Dish} from "../domainObjects/dish";
 
 @Component({
   selector: 'app-menu-create',
@@ -10,8 +12,14 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class MenuCreateComponent implements OnInit {
 
-    menus: any;
+    menu: Menu;
     errMsg: String;
+    orderMsg: String;
+    date: Date = new Date();
+
+    selectedDishes: Dish[] = [];
+
+    orderPrice: number = 0;
 
     constructor(private menuService: MenuService) { }
 
@@ -20,22 +28,26 @@ export class MenuCreateComponent implements OnInit {
     }
 
     getMenu() {
-        this.menuService.getCreateMenu().catch((err) => {
+        this.menuService.getMenuForADate(this.date).catch((err) => {
 
             if (err instanceof HttpErrorResponse && err.status == 403) {
                 this.errMsg = "Forbidden resource";
+            } else if(err.status == 400 && err.error == "menuNotFound") {
+                this.errMsg = "Menu for this date is not found";
             } else {
-                this.errMsg = err.message || "Server Error"
+                this.errMsg = err.message || "Server Error";
             }
-
             // Do messaging and error handling here
             return Observable.throw(err);
         }).subscribe(
-            (data: any) => {
-                console.log('aaaaaaaaa');
+            (data: Menu) => {
                 console.log(data);
+                this.errMsg = null;
+                this.orderMsg = null;
+                this.selectedDishes = [];
+                this.orderPrice = 0;
 
-                this.menus = [data];
+                this.menu = data;
             }
         );
     }

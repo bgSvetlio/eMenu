@@ -6,10 +6,28 @@
 
 <app-logout></app-logout>
 
-<ul>
-  <li *ngFor="let menu of menus">
-    <p>name of the menu: {{ menu.name }}</p>
-    <p>date of the menu: {{ menu.date }}</p>
-    <br>
-  </li>
-</ul>
+<p-calendar [(ngModel)]="date" (onSelect)="getMenu()"></p-calendar>
+
+<div *ngIf="orderMsg == null">
+
+  <p>date of the menu: {{ menu?.date }}</p>
+
+  <div class="ui-g">
+    <div class="ui-g-3" *ngFor="let dish of menu?.dishes">
+      <app-dish-card [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic" [id]="dish.id" >{{dish.description}}</app-dish-card>
+    </div>
+  </div>
+
+  <ul>
+    <li *ngFor="let dish of this?.selectedDishes">
+      <p>name of the dish: {{ dish.name }}</p>
+      <p>price of the dish: {{ dish.price }}</p>
+      <br>
+    </li>
+  </ul>
+
+  <h2>Price of the order: {{orderPrice| number:'.2-2'}}lv</h2>
+
+</div>
+
+<h1>{{orderMsg}}</h1>

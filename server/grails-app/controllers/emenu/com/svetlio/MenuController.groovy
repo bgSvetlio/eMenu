@@ -27,7 +27,7 @@ class MenuController {
     def show() {
         UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
 
-        Menu menu = Menu.find{date == params.date && restaurant == userEMenu.company.restaurant}
+        Menu menu = Menu.find{date == params.date && restaurant == (userEMenu.restaurant ?: userEMenu.company.restaurant)}
 
         if(menu) {
             render menu as JSON
