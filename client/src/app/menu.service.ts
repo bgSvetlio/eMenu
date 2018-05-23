@@ -23,4 +23,15 @@ export class MenuService {
     submitOrder(selectedDishes: Dish[], menu: Menu) {
         return this.http.post('http://localhost:8080/api/Order/save', {selectedDishes, menu});
     }
+
+    saveMenu(menu: Menu) {
+        return this.http.post('http://localhost:8080/api/Menu/save', {menu});
+    }
+
+    postFile(fileToUpload: File) {
+        const endpoint = 'http://localhost:8080/api/Menu/saveDishPic';
+        const formData: FormData = new FormData();
+        formData.append('fileKey', fileToUpload, fileToUpload.name);
+        return this.http.post(endpoint, formData);
+    }
 }

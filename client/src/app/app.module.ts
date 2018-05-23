@@ -18,11 +18,19 @@ import {AuthInterceptor} from "./auth-interceptor";
 import { MenuComponent } from './menu/menu.component';
 import {MenuService} from "./menu.service";
 import { MenuCreateComponent } from './menu-create/menu-create.component';
-import {AccordionModule, CalendarModule, CheckboxModule} from "primeng/primeng";
+import {
+    AccordionModule,
+    CalendarModule,
+    CheckboxModule,
+    FileUploadModule,
+    InputTextareaModule,
+    InputTextModule
+} from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { DishCardComponent } from './dish-card/dish-card.component';
 import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
+import { DishCardCreateComponent } from './dish-card-create/dish-card-create.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +41,8 @@ import {ButtonModule} from "primeng/button";
     LogoutComponent,
     MenuComponent,
     MenuCreateComponent,
-    DishCardComponent
+    DishCardComponent,
+    DishCardCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +56,10 @@ import {ButtonModule} from "primeng/button";
       CardModule,
       CheckboxModule,
       CalendarModule,
-      ButtonModule
+      ButtonModule,
+      InputTextModule,
+      InputTextareaModule,
+      FileUploadModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, NavService,  AuthGuard, AuthService,
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService],

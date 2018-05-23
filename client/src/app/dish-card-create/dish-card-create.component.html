@@ -1,0 +1,19 @@
+<div class="ui-card ui-widget ui-widget-content ui-corner-all ui-card-shadow1" ng-reflect-ng-class="ui-card ui-widget ui-widget-co" ng-reflect-ng-style="[object Object]" style="width: 360px;">
+  <div class="ui-card-header ng-star-inserted">
+    <img src="../../images/dishes/{{foodPic}}" alt="Picture of the food">
+  </div>
+  <div class="ui-card-body">
+    <span class="tag">
+      <b>Price: </b>
+      <span class="price">
+        <input type="text" placeholder="price" [(ngModel)]="price" (focusout)="focusOut()">lv
+      </span>
+    </span>
+
+    <input type="file" id="file" name="file" (change)="handleFileInput($event.target.files)">
+
+    <input id="dishName" type="text" pInputText placeholder="Dish name" [(ngModel)]="name" style="font-size: 1.5em; font-weight: bold;" (focusout)="focusOut()">
+    <input id="allergens" type="text" pInputText placeholder="Allergens" [(ngModel)]="allergens" value="{{allergens}}" (focusout)="focusOut()">
+    <textarea pInputTextarea placeholder="Description" [(ngModel)]="description" (focusout)="focusOut()"></textarea>
+  </div>
+</div>

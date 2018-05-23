@@ -14,19 +14,12 @@
 
   <div class="ui-g">
     <div class="ui-g-3" *ngFor="let dish of menu?.dishes">
-      <app-dish-card [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic" [id]="dish.id" >{{dish.description}}</app-dish-card>
+      <app-dish-card-create [name]="dish.name" [allergens]="dish.allergens" [price]="dish.price" [foodPic]="dish.foodPic" [id]="dish.id" [description]="dish.description" (updateDish)="updateDish($event)"></app-dish-card-create>
     </div>
   </div>
 
-  <ul>
-    <li *ngFor="let dish of this?.selectedDishes">
-      <p>name of the dish: {{ dish.name }}</p>
-      <p>price of the dish: {{ dish.price }}</p>
-      <br>
-    </li>
-  </ul>
-
-  <h2>Price of the order: {{orderPrice| number:'.2-2'}}lv</h2>
+  <p-button label="Add" (click)="addDish()" icon="fa fa-fw fa-plus-circle"></p-button>
+  <p-button label="Save" (click)="saveMenu()" icon="fa fa-fw fa-check"></p-button>
 
 </div>
 
