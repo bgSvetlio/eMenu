@@ -1,0 +1,15 @@
+<ul>
+  <li *ngFor="let foodOrder of this?.foodOrders">
+    <p>{{foodOrder.userName}}</p>
+    <ul>
+      <li *ngFor="let dish of foodOrder?.dishes">
+        <p>{{dish.name}}</p>
+        <p>{{dish.price| number:'.2-2'}}</p>
+      </li>
+    </ul>
+    Price for the order from {{foodOrder.userName}} is {{foodOrder.foodOrderPrice| number:'.2-2'}}
+    <br>
+  </li>
+</ul>
+
+Price for the day: {{this.priceForTheDay}}

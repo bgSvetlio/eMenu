@@ -5,6 +5,7 @@ import {LoginComponent} from "./login/login.component";
 import {AuthGuard} from "./auth-guard";
 import {MenuComponent} from "./menu/menu.component";
 import {MenuCreateComponent} from "./menu-create/menu-create.component";
+import {DailyOrdersComponent} from "./daily-orders/daily-orders.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
     {path: '', canActivate:[AuthGuard], children: [
             {path: 'index', component: IndexComponent},
             {path: 'menu', component: MenuComponent},
-            {path: 'menuCreate', component: MenuCreateComponent}
+            {path: 'menuCreate', component: MenuCreateComponent},
+            {path: 'dailyOrders', component: DailyOrdersComponent}
         ]}
 ];
 

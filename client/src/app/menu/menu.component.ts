@@ -5,6 +5,7 @@ import {MenuService} from "../menu.service";
 import {Menu} from "../domainObjects/menu";
 import {Dish} from "../domainObjects/dish";
 import {DatePipe} from "@angular/common";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu',
@@ -22,7 +23,7 @@ export class MenuComponent implements OnInit {
 
     orderPrice: number = 0;
 
-    constructor(private menuService: MenuService) { }
+    constructor(private menuService: MenuService, private router: Router) { }
 
     ngOnInit() {
         this.getMenu();
@@ -84,5 +85,18 @@ export class MenuComponent implements OnInit {
                 this.orderMsg = `You successfully ordered food for ${new DatePipe('en-US').transform(this.date, 'dd/MM/yyyy')} with ID of the order ${data.id}`;
             }
         );
+    }
+
+    openAllOrders() {
+        this.router.navigateByUrl('/dailyOrders');
+    }
+
+    isHR(): boolean {
+        let roles = localStorage.getItem('role');
+        if(roles.includes("ROLE_ADMIN") && roles.includes("ROLE_COMPANY")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

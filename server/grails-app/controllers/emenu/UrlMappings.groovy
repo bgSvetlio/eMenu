@@ -16,6 +16,7 @@ class UrlMappings {
         "/api/Menu/save"(controller: 'Menu', action: 'save')
         "/api/Menu/saveDishPic"(controller: 'Menu', action: 'saveDishPic')
         "/api/Order/save"(controller: 'Order', action: 'save')
+        "/api/Order/getCompanyOrdersForDay"(controller: 'Order', action: 'getCompanyOrdersForDay')
 
         "/"(controller: 'application', action:'index')
         "500"(view: '/error')

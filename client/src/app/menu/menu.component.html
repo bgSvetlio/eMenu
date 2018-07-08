@@ -4,6 +4,8 @@
 
 <h3 style="color: red">{{errMsg}}</h3>
 
+<button *ngIf="isHR()" (click)="openAllOrders()">All orders</button>
+
 <app-logout></app-logout>
 
 <p-calendar [(ngModel)]="date" (onSelect)="getMenu()"></p-calendar>

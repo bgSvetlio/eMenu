@@ -6,6 +6,7 @@ import com.svetlio.FoodOrder
 import com.svetlio.Menu
 import com.svetlio.Restaurant
 import com.svetlio.marshallers.MenuMarshaller
+import com.svetlio.marshallers.OrdersMarshaller
 import com.svetlio.security.Role
 import com.svetlio.security.UserEMenu
 import com.svetlio.security.UserEMenuRole
@@ -78,6 +79,7 @@ class BootStrap {
         FoodOrder order1 = new FoodOrder(dishes: [dish, dish1], user: user5, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
 
         [ new MenuMarshaller() ].each { it.register() }
+        [ new OrdersMarshaller() ].each { it.register() }
     }
     def destroy = {
     }

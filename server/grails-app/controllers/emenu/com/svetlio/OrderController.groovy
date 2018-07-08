@@ -18,8 +18,6 @@ class OrderController {
 
     @Secured('ROLE_COMPANY')
     def save() {
-        println "kokokoko"
-
         UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
 
         Menu menu = Menu.get(request.JSON.menu.id)
@@ -36,5 +34,16 @@ class OrderController {
         foodOrder.save(flush:true)
 
         respond foodOrder
+    }
+
+    @Secured('ROLE_ADMIN')
+    def getCompanyOrdersForDay() {
+
+        def date = params.date
+        UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
+
+        def orders = FoodOrder.findAll{menu.date == date && user.company == userEMenu.company}
+
+        render orders as JSON
     }
 }

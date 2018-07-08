@@ -31,6 +31,8 @@ import { DishCardComponent } from './dish-card/dish-card.component';
 import {CardModule} from "primeng/card";
 import {ButtonModule} from "primeng/button";
 import { DishCardCreateComponent } from './dish-card-create/dish-card-create.component';
+import { DailyOrdersComponent } from './daily-orders/daily-orders.component';
+import {OrdersService} from "./orders.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { DishCardCreateComponent } from './dish-card-create/dish-card-create.com
     MenuComponent,
     MenuCreateComponent,
     DishCardComponent,
-    DishCardCreateComponent
+    DishCardCreateComponent,
+    DailyOrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,7 @@ import { DishCardCreateComponent } from './dish-card-create/dish-card-create.com
       FileUploadModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, NavService,  AuthGuard, AuthService,
-      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService],
+      { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService, OrdersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

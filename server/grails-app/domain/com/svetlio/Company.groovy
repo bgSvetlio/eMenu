@@ -8,6 +8,9 @@ class Company {
     String phone
     Restaurant restaurant
 
+    String sendOrderHour
+
     static constraints = {
+        sendOrderHour nullable: true
     }
 }
