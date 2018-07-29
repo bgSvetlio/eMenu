@@ -6,6 +6,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import {HttpErrorResponse} from "@angular/common/http";
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class LoginComponent {
 
     form: FormGroup;
-    errMsg: String;
+    regForm: FormGroup;
+    msg: String;
 
     constructor(private fb: FormBuilder,
                 private authService: AuthService,
@@ -25,6 +27,14 @@ export class LoginComponent {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
+
+        this.regForm = this.fb.group({
+            comapnyName: ['', Validators.required],
+            secretKeyWord: ['', Validators.required],
+            username: ['', Validators.required],
+            eMail: ['', Validators.required],
+            password: ['', Validators.required],
+        });
     }
 
     login() {
@@ -32,10 +42,11 @@ export class LoginComponent {
 
         if (val.username && val.password) {
             this.authService.login(val.username, val.password).catch((err) => {
+                $("#message").css('color', 'red');
                 if (err instanceof HttpErrorResponse && err.status == 401) {
-                    this.errMsg = "Wrong username or password";
+                    this.msg = "Wrong username or password";
                 } else {
-                    this.errMsg = err.message || "Server Error"
+                    this.msg = err.message || "Server Error"
                 }
 
                 // Do messaging and error handling here
@@ -53,5 +64,33 @@ export class LoginComponent {
                 }
             );
         }
+    }
+
+    toggleLoginRegForm() {
+        this.msg = "";
+        $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+    }
+
+    register() {
+        console.log("gfhgf");
+        const val = this.regForm.value;
+
+        this.authService.registerUser(val.comapnyName, val.secretKeyWord, val.username, val.eMail, val.password).catch((err) => {
+            $("#message").css('color', 'red');
+            if (err.status == 400) {
+                this.msg = err.error;
+            } else {
+                this.msg = err.message || "Server Error"
+            }
+
+            // Do messaging and error handling here
+            return Observable.throw(err)
+        }).subscribe(
+            (data: any) => {
+                this.toggleLoginRegForm();
+                $("#message").css('color', 'green');
+                this.msg = "Registered successfully! Please login."
+            }
+        );
     }
 }

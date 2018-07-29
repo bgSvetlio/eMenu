@@ -1,18 +1,48 @@
-<form [formGroup]="form">
-  <fieldset>
-    <legend>Login</legend>
-    <h3 style="color: red">{{errMsg}}</h3>
-    <div class="form-field">
-      <label>User name:</label>
-      <input name="username" formControlName="username">
-    </div>
-    <div class="form-field">
-      <label>Password:</label>
-      <input name="password" formControlName="password" type="password">
-    </div>
-  </fieldset>
-  <div class="form-buttons">
-    <button class="button button-primary"
-            (click)="login()">Login</button>
+<div class="login-page">
+  <div class="form">
+    <h4 id="message">{{msg}}</h4>
+    <form [formGroup]="regForm" class="register-form">
+      <legend style="margin-bottom: 17px;">Registration</legend>
+      <span class="ui-float-label">
+        <input type="text" id="comapnyName" name="comapnyName" formControlName="comapnyName" pInputText required/>
+        <label for="comapnyName">Company Name</label>
+      </span>
+      <span class="ui-float-label">
+        <input type="password" id="secretKeyWord" name="secretKeyWord" formControlName="secretKeyWord" pInputText required/>
+        <label for="secretKeyWord">Company Secret Key Word</label>
+      </span>
+      <span class="ui-float-label">
+        <input type="text" id="username" name="username" formControlName="username" pInputText required/>
+        <label for="username">User Name</label>
+      </span>
+      <span class="ui-float-label">
+        <input type="email" id="eMail" name="eMail" formControlName="eMail" pInputText required email/>
+        <label for="eMail">E-mail Address</label>
+      </span>
+      <span class="ui-float-label">
+        <input type="password" id="password" name="password" formControlName="password" pPassword required/>
+        <label for="password">Password</label>
+      </span>
+      <button type="submit" (click)="register()" [disabled]="!regForm.valid">Create</button>
+      <p class="message">Already registered? <a href="#" (click)="toggleLoginRegForm();">Sign In</a></p>
+    </form>
+    <form [formGroup]="form" class="login-form">
+      <fieldset>
+        <legend>Login</legend>
+
+        <div class="form-field">
+          <input name="username" formControlName="username" placeholder="username">
+        </div>
+        <div class="form-field">
+          <input name="password" formControlName="password" type="password" placeholder="password">
+        </div>
+      </fieldset>
+      <div class="form-buttons">
+        <button class="button button-primary"
+                (click)="login()">Login</button>
+
+        <p class="message">Not registered? <a href="#" (click)="toggleLoginRegForm();">Create an account</a></p>
+      </div>
+    </form>
   </div>
-</form>
+</div>

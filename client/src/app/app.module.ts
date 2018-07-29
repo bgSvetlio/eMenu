@@ -24,7 +24,7 @@ import {
     CheckboxModule,
     FileUploadModule,
     InputTextareaModule,
-    InputTextModule
+    InputTextModule, PasswordModule
 } from "primeng/primeng";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { DishCardComponent } from './dish-card/dish-card.component';
@@ -62,7 +62,8 @@ import {OrdersService} from "./orders.service";
       ButtonModule,
       InputTextModule,
       InputTextareaModule,
-      FileUploadModule
+      FileUploadModule,
+      PasswordModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, NavService,  AuthGuard, AuthService,
       { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelper, MenuService, OrdersService],
