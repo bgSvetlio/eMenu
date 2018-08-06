@@ -54,7 +54,7 @@
 
     padding: 0 3px 0 10px;
 
-    left: 165px;
+    left: 135px;
     top: 10px;
 }
 
@@ -86,4 +86,18 @@
 
 .price {
     padding: 0 15px 0 0px;
+}
+
+
+.inputFields {
+    margin-bottom: 25px;
+}
+
+.priceInput {
+    width: 65px;
+    height: 20px;
+}
+
+.fileInput {
+    margin-top: 30px;
 }

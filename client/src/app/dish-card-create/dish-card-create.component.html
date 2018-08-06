@@ -6,14 +6,23 @@
     <span class="tag">
       <b>Price: </b>
       <span class="price">
-        <input type="text" placeholder="price" [(ngModel)]="price" (focusout)="focusOut()">lv
+        <input type="text" class="priceInput" placeholder="price" [(ngModel)]="price" (focusout)="focusOut()"> leva
       </span>
     </span>
 
-    <input type="file" id="file" name="file" (change)="handleFileInput($event.target.files)">
+    <input type="file" id="file" class="inputFields fileInput" name="file" (change)="handleFileInput($event.target.files)">
 
-    <input id="dishName" type="text" pInputText placeholder="Dish name" [(ngModel)]="name" style="font-size: 1.5em; font-weight: bold;" (focusout)="focusOut()">
-    <input id="allergens" type="text" pInputText placeholder="Allergens" [(ngModel)]="allergens" value="{{allergens}}" (focusout)="focusOut()">
-    <textarea pInputTextarea placeholder="Description" [(ngModel)]="description" (focusout)="focusOut()"></textarea>
+    <span class="ui-float-label inputFields">
+      <input id="dishName" type="text" pInputText [(ngModel)]="name" style="font-size: 1.5em; font-weight: bold;" (focusout)="focusOut()">
+      <label for="dishName">Dish name</label>
+    </span>
+    <span class="ui-float-label inputFields">
+      <input id="allergens" type="text" pInputText [(ngModel)]="allergens" value="{{allergens}}" (focusout)="focusOut()">
+      <label for="allergens">Allergens</label>
+    </span>
+    <span class="ui-float-label inputFields">
+      <textarea id="dishDescription" pInputTextarea [(ngModel)]="description" (focusout)="focusOut()"></textarea>
+      <label for="dishDescription">Dish description</label>
+    </span>
   </div>
 </div>
