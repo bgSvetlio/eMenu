@@ -10,7 +10,8 @@ class MenuMarshaller {
                     id: menu.id,
                     dishes: menu.dishes,
                     date: menu.date.format('yyyy-MM-dd'),
-                    restaurant: menu.restaurant
+                    restaurant: menu.restaurant,
+                    canOrder: menu.canOrder
             ]
         }
     }

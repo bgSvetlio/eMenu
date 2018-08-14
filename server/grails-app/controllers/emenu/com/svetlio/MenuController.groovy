@@ -6,6 +6,10 @@ import com.svetlio.security.UserEMenu
 import grails.plugin.springsecurity.annotation.Secured
 import grails.converters.*
 
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+
 class MenuController {
 
     UserService userService
@@ -28,9 +32,22 @@ class MenuController {
     def show() {
         UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
 
+        def sendOrderHour = userEMenu.company.sendOrderHour
+
+        def now = LocalDateTime.now();
+        def localDateOfMenu = LocalDate.parse(params.date)
+        def finalSendOrderHour = LocalTime.parse((userEMenu.company.sendOrderHour.length() == 1 ? "0" + userEMenu.company.sendOrderHour : userEMenu.company.sendOrderHour) + ":00:00")
+        def orderBefore = LocalDateTime.of(localDateOfMenu, finalSendOrderHour)
+
         Menu menu = Menu.find{date == params.date && restaurant == (userEMenu.restaurant ?: userEMenu.company.restaurant)}
 
         if(menu) {
+            if(now.isBefore(orderBefore)) {
+                menu.canOrder = true
+            } else {
+                menu.canOrder = false
+            }
+
             render menu as JSON
         } else {
             render status: 400, text: "menuNotFound", contentType:"text/plain"

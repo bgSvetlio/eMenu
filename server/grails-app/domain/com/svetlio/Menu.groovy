@@ -7,8 +7,10 @@ class Menu {
     static hasMany = [dishes: Dish]
     Date date
     Restaurant restaurant
+    Boolean canOrder
 
     static constraints = {
+        canOrder nullable: true
     }
 
     static mapping = {

@@ -19,7 +19,7 @@ class BootStrap {
     def init = { servletContext ->
         Restaurant restaurant = new Restaurant(name: "Wakawawa", restaurantURL: "waka", phone: "08839999999", eMail: "aaa@aaa.com").save(flush:true)
 
-        Company company = new Company(name: "SyncHR", companyURL: "synchr", secretKeyWord: "kokoko", phone: "09999999999", restaurant: restaurant).save(flush:true)
+        Company company = new Company(name: "SyncHR", companyURL: "synchr", secretKeyWord: "kokoko", phone: "09999999999", restaurant: restaurant, sendOrderHour: "11").save(flush:true)
         Company company1 = new Company(name: "Telerik", companyURL: "Telerik", secretKeyWord: "jojojo", phone: "088888888", restaurant: restaurant).save(flush:true)
 
 //        //Security bootstrap

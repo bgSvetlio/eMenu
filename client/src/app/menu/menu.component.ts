@@ -49,6 +49,10 @@ export class MenuComponent implements OnInit {
                 this.selectedDishes = [];
                 this.orderPrice = 0;
 
+                if(data.canOrder == false) {
+                    this.errMsg = "You can't order because the final order hour has past!";
+                }
+
                 this.menu = data;
             }
         );
