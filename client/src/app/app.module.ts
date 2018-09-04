@@ -33,6 +33,7 @@ import {ButtonModule} from "primeng/button";
 import { DishCardCreateComponent } from './dish-card-create/dish-card-create.component';
 import { DailyOrdersComponent } from './daily-orders/daily-orders.component';
 import {OrdersService} from "./orders.service";
+import { AllCompaniesDailyOrdersComponent } from './all-companies-daily-orders/all-companies-daily-orders.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {OrdersService} from "./orders.service";
     MenuCreateComponent,
     DishCardComponent,
     DishCardCreateComponent,
-    DailyOrdersComponent
+    DailyOrdersComponent,
+    AllCompaniesDailyOrdersComponent
   ],
   imports: [
     BrowserModule,

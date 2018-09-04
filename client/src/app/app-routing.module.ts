@@ -6,6 +6,7 @@ import {AuthGuard} from "./auth-guard";
 import {MenuComponent} from "./menu/menu.component";
 import {MenuCreateComponent} from "./menu-create/menu-create.component";
 import {DailyOrdersComponent} from "./daily-orders/daily-orders.component";
+import {AllCompaniesDailyOrdersComponent} from "./all-companies-daily-orders/all-companies-daily-orders.component";
 
 const routes: Routes = [
     {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -15,7 +16,8 @@ const routes: Routes = [
             {path: 'index', component: IndexComponent},
             {path: 'menu', component: MenuComponent},
             {path: 'menuCreate', component: MenuCreateComponent},
-            {path: 'dailyOrders', component: DailyOrdersComponent}
+            {path: 'dailyOrders', component: DailyOrdersComponent},
+            {path: 'allCompaniesDailyOrdersComponent', component: AllCompaniesDailyOrdersComponent}
         ]}
 ];
 

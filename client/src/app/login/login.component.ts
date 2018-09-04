@@ -72,7 +72,6 @@ export class LoginComponent {
     }
 
     register() {
-        console.log("gfhgf");
         const val = this.regForm.value;
 
         this.authService.registerUser(val.comapnyName, val.secretKeyWord, val.username, val.eMail, val.password).catch((err) => {

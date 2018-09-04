@@ -1,5 +1,6 @@
 package emenu.com.svetlio
 
+import com.svetlio.Company
 import com.svetlio.Dish
 import com.svetlio.FoodOrder
 import com.svetlio.Menu
@@ -45,5 +46,22 @@ class OrderController {
         def orders = FoodOrder.findAll{menu.date == date && user.company == userEMenu.company}
 
         render orders as JSON
+    }
+
+    @Secured('ROLE_RESTAURANT')
+    def getOrdersForDayForAllCompanies() {
+        def mapOfOrders = [:]
+
+        def date = params.date
+        UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
+
+        def companies = Company.findAll{restaurant == userEMenu.restaurant}
+
+        companies.each{ company ->
+            def orders = FoodOrder.findAll{menu.date == date && user.company.id == company.id}
+            mapOfOrders.put(company.name, orders)
+        }
+
+        render mapOfOrders as JSON
     }
 }

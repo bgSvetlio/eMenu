@@ -4,6 +4,7 @@ import {MenuService} from "../menu.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {Menu} from "../domainObjects/menu";
 import {Dish} from "../domainObjects/dish";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-menu-create',
@@ -17,7 +18,7 @@ export class MenuCreateComponent implements OnInit {
     orderMsg: String;
     date: Date = new Date();
 
-    constructor(private menuService: MenuService) { }
+    constructor(private menuService: MenuService, private router: Router) { }
 
     ngOnInit() {
         this.getMenu();
@@ -90,6 +91,19 @@ export class MenuCreateComponent implements OnInit {
         let index = this.menu.dishes.indexOf(this.menu.dishes.find(x => x.id == updatedDish.id));
 
         this.menu.dishes[index] = updatedDish;
+    }
+
+    isRestaurantEmployee(): boolean {
+        let roles = localStorage.getItem('role');
+        if(roles.includes("ROLE_RESTAURANT")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    openAllOrdersForAllCompanies() {
+        this.router.navigateByUrl('/allCompaniesDailyOrdersComponent');
     }
 
 }

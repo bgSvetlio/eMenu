@@ -65,11 +65,18 @@ class BootStrap {
         def user5 = new UserEMenu(username:"Soko",password:"qwe", eMail: "fds@fgd.com", company: company).save(flush:true)
         UserEMenuRole.create(user5,role3)
 
+        def user6 = new UserEMenu(username:"Poli",password:"qwe", eMail: "fds@fgd.com", company: company1).save(flush:true)
+        UserEMenuRole.create(user6,role3)
+
         Dish dish = new Dish(name: "Musaka", description: "potatoes and meat", price: 3.20, allergens: "potato, eggs", foodPic: "food3.jpg").save(flush:true)
         Dish dish1 = new Dish(name: "Kebab", description: "meat", price: 2.20, allergens:  "dfsfds", foodPic: "food1.jpg").save(flush:true)
         Dish dish2 = new Dish(name: "Banica", description: "dough with cheese and eggs", price: 1.20, allergens:  "egs", foodPic: "food2.jpg").save(flush:true)
 
+        Dish dish3 = new Dish(name: "PK", description: "fried potatoes (chips)", price: 3.80, allergens:  "potatoes").save(flush:true)
+
         Menu menu = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
+
+        Menu menu1 = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         def parsed = sdf.parse("20/05/2018");
@@ -77,6 +84,7 @@ class BootStrap {
 
         FoodOrder order = new FoodOrder(dishes: [dish1, dish2], user: user5, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
         FoodOrder order1 = new FoodOrder(dishes: [dish, dish1], user: user5, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
+        FoodOrder order2 = new FoodOrder(dishes: [dish, dish2], user: user4, timestamp: new Timestamp(System.currentTimeMillis()), menu: menu).save(flush:true)
 
         [ new MenuMarshaller() ].each { it.register() }
         [ new OrdersMarshaller() ].each { it.register() }
