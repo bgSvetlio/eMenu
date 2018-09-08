@@ -39,6 +39,7 @@ export class DishCardCreateComponent implements OnInit {
     uploadFileToActivity() {
         this.menuService.postFile(this.fileToUpload).subscribe(data => {
             this.foodPic = this.fileToUpload.name
+            this.focusOut();
         }, error => {
             console.log(error);
         });
