@@ -58,7 +58,7 @@ class MenuController {
     def save() {
         UserEMenu userEMenu = userService.getCurrentUser(request.getHeader("x-auth-token"))
 
-        Menu menu = Menu.get(request.JSON.menu.id) ?: new Menu(date: java.sql.Date.valueOf(request.JSON.menu.date.split("T")[0]), restaurant: userEMenu.restaurant)
+        Menu menu = Menu.get(request.JSON.menu.id) ?: new Menu(date: java.sql.Date.valueOf(request.JSON.menu.date.split("T")[0]) + 1, restaurant: userEMenu.restaurant)
 
         menu.dishes = []
 

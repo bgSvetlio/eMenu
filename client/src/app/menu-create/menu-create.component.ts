@@ -66,6 +66,7 @@ export class MenuCreateComponent implements OnInit {
     }
 
     saveMenu() {
+        this.menu.date = this.date;
         this.menuService.saveMenu(this.menu).catch((err) => {
 
             if (err instanceof HttpErrorResponse && err.status == 403) {

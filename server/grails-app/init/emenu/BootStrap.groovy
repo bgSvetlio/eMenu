@@ -76,7 +76,7 @@ class BootStrap {
 
         Menu menu = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
 
-        Menu menu1 = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
+//        Menu menu1 = new Menu(dishes: [dish, dish1, dish2], date: new java.sql.Date(System.currentTimeMillis()), restaurant: restaurant).save(flush:true)
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         def parsed = sdf.parse("20/05/2018");
