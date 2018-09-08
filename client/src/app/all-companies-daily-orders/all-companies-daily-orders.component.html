@@ -1,23 +1,23 @@
-<p>
-  all-companies-daily-orders works!
-</p>
+<p-button label="Get back to create menu" (click)="navigateToCreateMenu()"></p-button>
+<app-logout></app-logout>
+<h2>
+  Orders from all companies for the day:
+</h2>
 <ul>
   <li *ngFor="let name of this?.companyNames; let i= index">
-    <p>{{name}} - {{this.companyPrices[i]| number:'.2-2'}}</p>
+    <h4>{{name}} - {{this.companyPrices[i]| number:'.2-2'}}lv</h4>
     <ul>
       <li *ngFor="let foodOrder of this?.companiesWithOrders[i]">
-        <p>{{foodOrder.userName}}</p>
+        <h5>{{foodOrder.userName}}</h5>
         <ul>
           <li *ngFor="let dish of foodOrder?.dishes">
             <p>{{dish.name}}</p>
-            <p>{{dish.price| number:'.2-2'}}</p>
+            <p>{{dish.price| number:'.2-2'}}lv</p>
           </li>
         </ul>
-        Price for the order from {{foodOrder.userName}} is {{foodOrder.foodOrderPrice| number:'.2-2'}}
+          <h6>Price for the order from {{foodOrder.userName}} is {{foodOrder.foodOrderPrice| number:'.2-2'}}lv</h6>
         <br>
       </li>
     </ul>
   </li>
 </ul>
-
-<!--Price for the day: {{this.priceForTheDay| number:'.2-2'}}-->

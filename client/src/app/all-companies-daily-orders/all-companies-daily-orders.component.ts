@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {FoodOrder} from "../domainObjects/foodOrder";
 import {OrdersService} from "../orders.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-all-companies-daily-orders',
@@ -14,7 +15,7 @@ export class AllCompaniesDailyOrdersComponent implements OnInit {
     companiesWithOrders;
     companyPrices;
 
-  constructor(private ordersService: OrdersService) { }
+  constructor(private ordersService: OrdersService, private router: Router) { }
 
   ngOnInit() {
     this.getAllOrdersForAllCompanies();
@@ -38,7 +39,6 @@ export class AllCompaniesDailyOrdersComponent implements OnInit {
               for(let companyOrders of this.companiesWithOrders) {
                   let companyPrice = 0;
                   for(let foodOrder of companyOrders) {
-                      console.log("11111111111");
                       foodOrder.foodOrderPrice = 0;
 
                       for(let dish of foodOrder.dishes) {
@@ -48,9 +48,11 @@ export class AllCompaniesDailyOrdersComponent implements OnInit {
                   }
                   this.companyPrices.push(companyPrice);
               }
-
-              console.log("fdsfdsfs");
           }
       );
+  }
+
+  navigateToCreateMenu() {
+      this.router.navigateByUrl('/menuCreate');
   }
 }

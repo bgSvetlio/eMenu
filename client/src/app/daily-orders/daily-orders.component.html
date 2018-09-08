@@ -1,15 +1,20 @@
+<p-button label="Get back to create menu" (click)="navigateToMenu()"></p-button>
+<app-logout></app-logout>
+<h2>
+  All orders for the day:
+</h2>
 <ul>
   <li *ngFor="let foodOrder of this?.foodOrders">
-    <p>{{foodOrder.userName}}</p>
+    <h5>{{foodOrder.userName}}</h5>
     <ul>
       <li *ngFor="let dish of foodOrder?.dishes">
         <p>{{dish.name}}</p>
-        <p>{{dish.price| number:'.2-2'}}</p>
+        <p>{{dish.price| number:'.2-2'}}lv</p>
       </li>
     </ul>
-    Price for the order from {{foodOrder.userName}} is {{foodOrder.foodOrderPrice| number:'.2-2'}}
+      <h6>Price for the order from {{foodOrder.userName}} is {{foodOrder.foodOrderPrice| number:'.2-2'}}lv</h6>
     <br>
   </li>
 </ul>
 
-Price for the day: {{this.priceForTheDay| number:'.2-2'}}
+<h4>Price for the day: {{this.priceForTheDay| number:'.2-2'}}lv</h4>

@@ -5,6 +5,7 @@ import {Observable} from "rxjs/Observable";
 
 import {FoodOrder} from "../domainObjects/foodOrder";
 import {Dish} from "../domainObjects/dish";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-daily-orders',
@@ -17,7 +18,7 @@ export class DailyOrdersComponent implements OnInit {
 
     priceForTheDay: number = 0;
 
-  constructor(private ordersService: OrdersService) {}
+  constructor(private ordersService: OrdersService, private router: Router) {}
 
   ngOnInit() {
       this.getAllOrders();
@@ -39,11 +40,13 @@ export class DailyOrdersComponent implements OnInit {
                     foodOrder.foodOrderPrice += dish.price;
                 }
             }
-
             console.log(data);
         }
     );
+  }
 
+  navigateToMenu() {
+      this.router.navigateByUrl('/menu');
   }
 
 }
